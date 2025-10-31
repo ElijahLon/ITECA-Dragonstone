@@ -42,11 +42,11 @@ foreach($cats as $c){
     </div>
   </div>
 </div>
-
+//lol
 <!-- Minimized Chat Button -->
 <div id="minimizedChat" class="position-fixed" style="bottom: 20px; right: 20px; z-index: 1000; display: none;">
   <button class="btn btn-success rounded-circle shadow-lg" style="width: 60px; height: 60px; font-size: 24px;" title="Open Community Chat">
-    💬
+    //💬
   </button>
 </div>
 
