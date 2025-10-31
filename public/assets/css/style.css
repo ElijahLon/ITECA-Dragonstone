@@ -1,0 +1,366 @@
+/*=============== ROOT VARIABLES ===============*/
+:root {
+  --black: #0b0b0b;
+  --white: #ffffff;
+  --beige: #f3efe7;
+  --green: #2e7d32;
+
+  /* HSL color mode variables */
+  --white-color: hsl(0, 0%, 100%);
+  --black-color: hsl(0, 0%, 0%);
+
+  /* Fonts */
+  --body-font: "Poppins", sans-serif;
+  --h1-font-size: 1.75rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.813rem;
+  --font-medium: 500;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font), Inter, Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: #222; /* dark text globally */
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+/*=============== GLOBAL COMPONENTS ===============*/
+.bg-black {
+  background: var(--black) !important;
+}
+
+.bg-beige {
+  background: var(--beige) !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: var(--white) !important;
+}
+
+.hero {
+  background: linear-gradient(180deg, var(--beige), #fff);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.product-card {
+  transition: transform 0.25s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overflow-auto {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 12px;
+}
+
+.overflow-auto .col-auto {
+  display: inline-block;
+  float: none;
+}
+
+.more-link {
+  color: var(--green);
+  text-decoration: none;
+}
+
+/* Subtle floating animations for decorative shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  animation: floaty 6s ease-in-out infinite;
+}
+
+.shape.shape-1 {
+  width: 180px;
+  height: 180px;
+  background: var(--green);
+  left: 10px;
+  top: 120px;
+}
+
+.shape.shape-2 {
+  width: 120px;
+  height: 120px;
+  background: #000;
+  right: 40px;
+  top: 220px;
+}
+
+@keyframes floaty {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/*=============== LOGIN PAGE ===============*/
+.login {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  color: var(--white-color); /* only login text is white */
+}
+
+.login__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.login__form {
+  position: relative;
+  background-color: hsla(0, 0%, 10%, 0.1);
+  border: 2px solid var(--white-color);
+  margin-inline: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.login__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: 2rem;
+}
+
+.login__content,
+.login__box {
+  display: grid;
+}
+
+.login__content {
+  row-gap: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.login__box {
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  column-gap: 0.75rem;
+  border-bottom: 2px solid var(--white-color);
+}
+
+.login__icon,
+.login__eye {
+  font-size: 1.25rem;
+}
+
+.login__input {
+  width: 100%;
+  padding-block: 0.8rem;
+  background: none;
+  color: var(--white-color);
+  position: relative;
+  z-index: 1;
+}
+
+.login__box-input {
+  position: relative;
+}
+
+.login__label {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-weight: var(--font-medium);
+  transition: top 0.3s, font-size 0.3s;
+}
+
+.login__eye {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.login__box:nth-child(2) input {
+  padding-right: 1.8rem;
+}
+
+.login__check,
+.login__check-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login__check {
+  margin-bottom: 1.5rem;
+}
+
+.login__check-label,
+.login__forgot,
+.login__register {
+  font-size: var(--small-font-size);
+}
+
+.login__check-group {
+  column-gap: 0.5rem;
+}
+
+.login__check-input {
+  width: 16px;
+  height: 16px;
+}
+
+.login__forgot {
+  color: var(--white-color);
+}
+
+.login__forgot:hover {
+  text-decoration: underline;
+}
+
+.login__button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--white-color);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.login__register {
+  text-align: center;
+}
+
+.login__register a {
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
+
+.login__register a:hover {
+  text-decoration: underline;
+}
+
+/* Input focus label animation */
+.login__input:focus + .login__label,
+.login__input:not(:placeholder-shown).login__input:not(:focus) + .login__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+
+/*=============== BREAKPOINTS ===============*/
+@media screen and (min-width: 576px) {
+  .login {
+    justify-content: center;
+  }
+
+  .login__form {
+    width: 432px;
+    padding: 4rem 3rem 3.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .login__title {
+    font-size: 2rem;
+  }
+}
+
+/*=============== MISC UI ENHANCEMENTS ===============*/
+.password-field {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #6c757d;
+  transition: color 0.2s;
+}
+
+.password-toggle:hover {
+  color: #212529;
+}
+
+.password-toggle:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Form validation styles */
+.needs-validation .form-control:valid:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+.needs-validation .form-control:invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+/* Card animation */
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Button hover effect */
+.btn-primary {
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
